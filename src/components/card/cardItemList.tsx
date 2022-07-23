@@ -21,6 +21,10 @@ export const CardItemList = (prop: IProps) => {
       progress: undefined,
     });
   };
+
+  const clearEvents = () => {
+    letSee.clear();
+  };
   return (
     <div className="main-requests">
       <div className="search_box">
@@ -64,10 +68,16 @@ export const CardItemList = (prop: IProps) => {
       >
         <strong className="empty-text">No Request Received Yet.</strong>
         <div>
-          <img className="empty-image" src="/resources/empty.png" alt=""></img>
+          <img className="empty-image" src="/empty.png" alt=""></img>
         </div>
       </div>
-      <button id="clear-button" value="Clear">
+      <button
+        id="clear-button"
+        value="Clear"
+        onClick={() => {
+          clearEvents();
+        }}
+      >
         Clear
       </button>
     </div>

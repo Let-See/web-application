@@ -63,6 +63,9 @@ export default class LetSee {
 
     clear() {
         this.events = []
+        this.cards = []
+        this.visibleCards = undefined
+        this.showDetails = null
     } 
 
     beutifyBody(body: string) {
