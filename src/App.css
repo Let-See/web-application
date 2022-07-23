@@ -1,0 +1,83 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.address {
+	line-height: 27px;
+	font-size: smaller;
+	letter-spacing: normal;
+  font-family: monospace;
+}
+.address > .base{
+	/* background-color: #181818; */
+	border-radius: 5px;
+	text-align: center;
+	color: orangered;
+
+	letter-spacing: normal;
+  font-weight: 400;
+
+  margin-right: -8px;
+}
+
+.badge.method {
+	font-weight: 700;
+}
+  
+.GET {
+	background-color: #050032;
+}
+.DELETE{
+	background-color:  #320700;
+}
+
+.POST, .PUT, .PATCH {
+	background-color: #003212;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+span.header-value {
+  color: white;
+}
+
+span.header-key {
+  color: darkgoldenrod;
+}
+
+p.header-item {
+  padding: 2px;
+  line-break: anywhere;
+}
