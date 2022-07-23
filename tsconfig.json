@@ -6,6 +6,11 @@
       "dom.iterable",
       "esnext"
     ],
+
+    "paths": {
+      "@components/*": [ "./src/components/*"],
+      "@letsee/*": [ "./src/letsee/*"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

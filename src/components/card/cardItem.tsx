@@ -1,5 +1,5 @@
 import React from "react"; // we need this to make JSX compile
-import { ICardItem } from "../../letsee/letsee-interfaces";
+import { ICardItem } from "@letsee/letsee-interfaces";
 interface IProps {
   item: ICardItem;
   onClick: (id: string) => void;

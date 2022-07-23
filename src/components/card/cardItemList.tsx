@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 
-import { LetSeeContext } from "../../letsee/letsee-context";
-import { ICardItem } from "../../letsee/letsee-interfaces";
-import { ItemCard } from "./cardItem";
+import { LetSeeContext } from "@letsee/letsee-context";
+import { ICardItem } from "@letsee/letsee-interfaces";
+import { ItemCard } from "@components/card/cardItem";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 interface IProps {

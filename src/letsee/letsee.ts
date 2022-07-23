@@ -1,5 +1,5 @@
-import LetSeeEvent, { IEvent } from "./letsee-event"
-import { ConnectionConfig, ICardItem, IKeyValue } from "./letsee-interfaces"
+import LetSeeEvent, { IEvent } from "@letsee/letsee-event"
+import { ConnectionConfig, ICardItem, IKeyValue } from "@letsee/letsee-interfaces"
 
 export default class LetSee {
     baseURL?: string

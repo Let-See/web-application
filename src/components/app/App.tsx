@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import "./letsee/letsee";
-import { ItemDetails } from "./components/details/itemDetails";
-import { CardItemList } from "./components/card/cardItemList";
-import { LetSeeContext } from "./letsee/letsee-context";
+import "@letsee/letsee";
+import { ItemDetails } from "../details/itemDetails";
+import { CardItemList } from "@components/card/cardItemList";
+import { LetSeeContext } from "@letsee/letsee-context";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import LetSee from "./letsee/letsee";
+import LetSee from "@letsee/letsee";
 const letsee = new LetSee();
 function App() {
   const [requestDetails, setRequestDetails] = useState(letsee.showDetails);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { IEvent } from "../../letsee/letsee-event";
+import { IEvent } from "@letsee/letsee-event";
 import ReactJson from "react-json-view";
-import { IKeyValue } from "../../letsee/letsee-interfaces";
+import { IKeyValue } from "@letsee/letsee-interfaces";
 interface IProps {
   item: IEvent;
 }
@@ -53,11 +53,11 @@ export const ItemDetails = (prop: IProps) => {
             id="request_container"
             hidden={selectedTab !== 0}
           >
-            <div id="request_params_container">
+            {/* <div id="request_params_container">
               <div id="request_url">{prop.item.request.url}</div>
               <div id="params_title">Query Parameters</div>
               <div id="request_params">{prop.item.request.url}</div>
-            </div>
+            </div> */}
             <div id="request_data">
               <ReactJson
                 src={JSON.parse(prop.item.request.body ?? "")}
