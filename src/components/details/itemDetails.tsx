@@ -31,6 +31,15 @@ export const ItemDetails = (prop: IProps) => {
       )
       .join("\n");
   };
+
+  const isJsonString = (str: string) => {
+    try {
+      JSON.parse(str);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  };
   return (
     <div className="main-viewer">
       <div className="wrapper data-container fade-animatable">
@@ -59,10 +68,18 @@ export const ItemDetails = (prop: IProps) => {
               <div id="request_params">{prop.item.request.url}</div>
             </div> */}
             <div id="request_data">
-              <ReactJson
-                src={JSON.parse(prop.item.request.body ?? "")}
-                theme="solarized"
-              />
+              {isJsonString(prop.item.request.body ?? "") ? (
+                <ReactJson
+                  src={JSON.parse(prop.item.request.body ?? "")}
+                  theme="solarized"
+                />
+              ) : (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: prop.item.request.body ?? "",
+                  }}
+                ></div>
+              )}
             </div>
           </div>
           <div
@@ -71,10 +88,18 @@ export const ItemDetails = (prop: IProps) => {
             hidden={selectedTab !== 1}
           >
             <div id="response_data">
-              <ReactJson
-                src={JSON.parse(prop.item.response?.body ?? "")}
-                theme="solarized"
-              />
+              {isJsonString(prop.item.response?.body ?? "") ? (
+                <ReactJson
+                  src={JSON.parse(prop.item.response?.body ?? "")}
+                  theme="solarized"
+                />
+              ) : (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: prop.item.response?.body ?? "",
+                  }}
+                ></div>
+              )}
             </div>
           </div>
           <div
