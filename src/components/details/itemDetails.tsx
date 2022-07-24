@@ -58,9 +58,29 @@ export const ItemDetails = (prop: IProps) => {
         </ul>
         <section className="tabgroup fade-animatable" id="first-tab-group">
           <div
+            className="tab-container"
+            id="response_container"
+            hidden={selectedTab !== 0}
+          >
+            <div id="response_data">
+              {isJsonString(prop.item.response?.body ?? "") ? (
+                <ReactJson
+                  src={JSON.parse(prop.item.response?.body ?? "")}
+                  theme="solarized"
+                />
+              ) : (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: prop.item.response?.body ?? "",
+                  }}
+                ></div>
+              )}
+            </div>
+          </div>
+          <div
             className="tab-container fade-animatable"
             id="request_container"
-            hidden={selectedTab !== 0}
+            hidden={selectedTab !== 1}
           >
             {/* <div id="request_params_container">
               <div id="request_url">{prop.item.request.url}</div>
@@ -77,26 +97,6 @@ export const ItemDetails = (prop: IProps) => {
                 <div
                   dangerouslySetInnerHTML={{
                     __html: prop.item.request.body ?? "",
-                  }}
-                ></div>
-              )}
-            </div>
-          </div>
-          <div
-            className="tab-container"
-            id="response_container"
-            hidden={selectedTab !== 1}
-          >
-            <div id="response_data">
-              {isJsonString(prop.item.response?.body ?? "") ? (
-                <ReactJson
-                  src={JSON.parse(prop.item.response?.body ?? "")}
-                  theme="solarized"
-                />
-              ) : (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: prop.item.response?.body ?? "",
                   }}
                 ></div>
               )}

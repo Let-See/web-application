@@ -46,7 +46,7 @@ export const CardItemList = (prop: IProps) => {
         </div>
       </div>
       <div id="requests_container">
-        {prop.items.reverse().map((item) => (
+        {prop.items.map((item) => (
           <ItemCard
             item={item}
             key={item.id}

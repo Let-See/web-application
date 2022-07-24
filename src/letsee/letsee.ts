@@ -104,8 +104,8 @@ export default class LetSee {
             this._cards[cardIndex] = cardItem
             this.cards = this._cards
         } else {
-            this.events = this.events.concat([e])
-            this.cards = this.cards.concat([cardItem])
+            this.events = [e].concat(this.events)
+            this.cards = [cardItem].concat(this.cards)
         }
     }
 
