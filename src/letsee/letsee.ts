@@ -178,11 +178,9 @@ export default class LetSee {
         "ws://" + location.hostname + ":" + configs.webSocketPort + "/api/ws";
         // Let us open a web socket
         const websocket= new WebSocket(wesocketAddress)
-        console.log("connecting to websocket")
         websocket.onopen = () => {
             timer = undefined
             websocket.send('{"connected": true}');
-            console.log("Connected to websocket")
         };
 
         websocket.onmessage = (evt) => {

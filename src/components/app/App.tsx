@@ -14,21 +14,14 @@ function App() {
   const [cards, setCards] = useState(letsee.cards);
 
   useEffect(() => {
-    console.log("refereshed");
     letsee.subscribe(appID, async (ls) => {
-      console.log("updating requests");
       setRequestDetails(ls.showDetails);
       setCards([...(ls.visibleCards ?? ls.cards)]);
     });
     return () => {
-      console.log("unmounted");
       letsee.unsubscribe(appID);
     };
-  });
-
-  useEffect(() => {
-    console.log("cards:", cards);
-  }, [cards]);
+  }, []);
 
   return (
     <div className="App">
