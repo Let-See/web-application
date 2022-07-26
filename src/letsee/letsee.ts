@@ -1,6 +1,8 @@
 import LetSeeEvent, { IEvent } from "@letsee/letsee-event"
 import { ConnectionConfig, ICardItem, IKeyValue } from "@letsee/letsee-interfaces"
-
+const reg = new FinalizationRegistry((ws: WebSocket | undefined) => {
+    ws = undefined
+})
 export default class LetSee {
     baseURL?: string
     private _events: Array<IEvent> = []
@@ -42,13 +44,14 @@ export default class LetSee {
         this.showDetails = null
         this.observers = []
         this.getConfig()
+        reg.register(this,this.ws)
     }
 
     subscribe(obj: Object,cb: (letSee: LetSee)=>{}) {
         this.observers.push([obj,cb])
     }
 
-    ubsubscribe(obj: Object) {
+    unsubscribe(obj: Object) {
         this.observers = this.observers.filter((item) => item[0] === obj)
     }
 
@@ -175,10 +178,11 @@ export default class LetSee {
         "ws://" + location.hostname + ":" + configs.webSocketPort + "/api/ws";
         // Let us open a web socket
         const websocket= new WebSocket(wesocketAddress)
-
+        console.log("connecting to websocket")
         websocket.onopen = () => {
             timer = undefined
             websocket.send('{"connected": true}');
+            console.log("Connected to websocket")
         };
 
         websocket.onmessage = (evt) => {
