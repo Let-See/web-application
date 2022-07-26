@@ -6,7 +6,7 @@ import { CardItemList } from "@components/card/cardItemList";
 import { LetSeeContext } from "@letsee/letsee-context";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-let unsafeReference = {};
+let appID = "AppComponents";
 
 function App() {
   const letsee = useContext(LetSeeContext);
@@ -14,16 +14,17 @@ function App() {
   const [cards, setCards] = useState(letsee.cards);
 
   useEffect(() => {
-    letsee.subscribe(unsafeReference, async (ls) => {
+    console.log("refereshed");
+    letsee.subscribe(appID, async (ls) => {
       console.log("updating requests");
       setRequestDetails(ls.showDetails);
-      setCards(ls.visibleCards ?? ls.cards);
+      setCards([...(ls.visibleCards ?? ls.cards)]);
     });
     return () => {
       console.log("unmounted");
-      letsee.unsubscribe(unsafeReference);
+      letsee.unsubscribe(appID);
     };
-  }, []);
+  });
 
   useEffect(() => {
     console.log("cards:", cards);

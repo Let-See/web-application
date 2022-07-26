@@ -52,7 +52,7 @@ export default class LetSee {
     }
 
     unsubscribe(obj: Object) {
-        this.observers = this.observers.filter((item) => item[0] === obj)
+        this.observers = this.observers.filter((item) => item[0] !== obj)
     }
 
     search(query: string) {
